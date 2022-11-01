@@ -1,0 +1,120 @@
+#include <iostream>
+
+using namespace std;
+
+
+void read ()
+{
+
+
+    // Declaration and assignment of values to variables
+    double base_price_A = 15.95, base_price_B = 25.95, base_price_C = 45.95;
+
+    double cost;
+
+
+    char package_type;
+
+    cout << "Enter the package type you use : ";
+
+    cin >> package_type;
+
+
+    if (package_type != 'B' && package_type != 'b' && package_type != 'A'
+        && package_type != 'a' && package_type != 'C' && package_type != 'c')
+
+    {
+        cout << " Enter a valid package type \n ";
+
+        return read ();
+    }
+
+
+    cout << "\n Enter number of messaging units you use : ";
+
+    int units;
+    cin >> units;
+
+
+    // Cost And Additional cost
+    if ((package_type == 'a' || package_type == 'A') && units > 10)
+    {
+        cost = base_price_A;
+        double cost_A = cost + (units - 10 ) * 0.20;
+
+        cout << "Cost of mobile device service is $" << cost_A;
+
+    }
+
+    else if((package_type == 'a' || package_type == 'A') && units <= 10)
+    {
+        cost = base_price_A;
+        cout << "Cost of mobile device service is $" << cost;
+
+    }
+
+    else if ((package_type == 'B' || package_type == 'b') && units > 20)
+    {
+        cost= base_price_B;
+        double cost_B = cost + ((units - 20) * 0.10 );
+
+        cout << "Cost of mobile device service is $" << cost_B;
+
+    }
+
+    else if ((package_type == 'B' || package_type == 'b') && units <= 20)
+    {
+        cost= base_price_B;
+        cout << "Cost of mobile device service is $" << cost;
+
+    }
+
+    else if (package_type == 'C' || package_type == 'c')
+
+    {
+        cost = base_price_C;
+        cout << "Cost of mobile device service is $" << cost;
+    }
+
+
+    // Process Termination
+    char end;
+
+    cout << "\n";
+
+    cout <<
+         "To terminate process press N or to continue press any other key : ";
+
+    cin >> end;
+
+    cout << "\n";
+
+    if (end == 'n' || end == 'N')
+    {
+
+        cout << "Process terminated";
+
+    }
+
+    else
+    {
+        return read ();
+    }
+
+}
+
+
+
+
+int
+main ()
+{
+
+
+    read ();
+
+    return 0;
+
+}
+
+
